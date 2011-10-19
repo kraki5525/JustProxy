@@ -22,7 +22,8 @@ namespace JustProxy.Extensions
                                                                                                    {System.Net.HttpStatusCode.InternalServerError, HttpStatusCode.InternalServerError},
                                                                                                    {System.Net.HttpStatusCode.LengthRequired, HttpStatusCode.LengthRequired},
                                                                                                    {System.Net.HttpStatusCode.MethodNotAllowed, HttpStatusCode.MethodNotAllowed},
-                                                                                                   {System.Net.HttpStatusCode.Moved, HttpStatusCode.Moved},
+                                                                                                   {System.Net.HttpStatusCode.Moved, HttpStatusCode.MovedPermanently},
+                                                                                                   {System.Net.HttpStatusCode.MovedPermanently, HttpStatusCode.MovedPermanently},
                                                                                                    {System.Net.HttpStatusCode.MultipleChoices, HttpStatusCode.MultipleChoices},
                                                                                                    {System.Net.HttpStatusCode.NoContent, HttpStatusCode.NoContent},
                                                                                                    {System.Net.HttpStatusCode.NonAuthoritativeInformation, HttpStatusCode.NonAuthoritativeInformation},
@@ -35,8 +36,8 @@ namespace JustProxy.Extensions
                                                                                                    {System.Net.HttpStatusCode.PaymentRequired, HttpStatusCode.PaymentRequired},
                                                                                                    {System.Net.HttpStatusCode.PreconditionFailed, HttpStatusCode.PreconditionFailed},
                                                                                                    {System.Net.HttpStatusCode.ProxyAuthenticationRequired, HttpStatusCode.ProxyAuthenticationRequired},
-                                                                                                   {System.Net.HttpStatusCode.Redirect, HttpStatusCode.Redirect},
-                                                                                                   {System.Net.HttpStatusCode.RedirectMethod, HttpStatusCode.RedirectMethod},
+                                                                                                   {System.Net.HttpStatusCode.Redirect, HttpStatusCode.Found},
+                                                                                                   {System.Net.HttpStatusCode.RedirectMethod, HttpStatusCode.SeeOther},
                                                                                                    {System.Net.HttpStatusCode.RequestedRangeNotSatisfiable, HttpStatusCode.RequestedRangeNotSatisfiable},
                                                                                                    {System.Net.HttpStatusCode.RequestEntityTooLarge, HttpStatusCode.RequestEntityTooLarge},
                                                                                                    {System.Net.HttpStatusCode.RequestTimeout, HttpStatusCode.RequestTimeout},
@@ -47,7 +48,7 @@ namespace JustProxy.Extensions
                                                                                                    {System.Net.HttpStatusCode.TemporaryRedirect, HttpStatusCode.TemporaryRedirect},
                                                                                                    {System.Net.HttpStatusCode.Unauthorized, HttpStatusCode.Unauthorized},
                                                                                                    {System.Net.HttpStatusCode.UnsupportedMediaType, HttpStatusCode.UnsupportedMediaType},
-                                                                                                   {System.Net.HttpStatusCode.Unused, HttpStatusCode.Unused},
+                                                                                                   {System.Net.HttpStatusCode.Unused, HttpStatusCode.SwitchProxy},
                                                                                                    {System.Net.HttpStatusCode.UseProxy, HttpStatusCode.UseProxy}
                                                                                                };
         public static HttpStatusCode ToNancyStatusCode(this System.Net.HttpStatusCode statusCode)
