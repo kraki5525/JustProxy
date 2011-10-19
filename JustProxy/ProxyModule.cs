@@ -73,7 +73,7 @@ namespace JustProxy
                 doc.LoadHtml(html);
 
                 IEnumerable<HtmlAttribute> hrefes = (from n in doc.DocumentNode.Descendants()
-                                                     where n.Name == "a" && n.HasAttributes && n.Attributes["href"] != null
+                                                     where n.HasAttributes && n.Attributes["href"] != null
                                                      select n.Attributes["href"])
                                                .Union((from n in doc.DocumentNode.Descendants()
                                                        where n.HasAttributes && n.Attributes["src"] != null
