@@ -25,13 +25,19 @@ namespace JustProxy
         {
             actions = new Dictionary<string, Func<Uri, string, string, object>>
                       {
-                          {"text/html", ProcessHtml}
+                          {"text/html", ProcessHtml},
+                          {"text/css", ProcessCss}
                       };
             defaultAction = ProcessGeneric;
 
             Get["/route"] = x => { return ProcessUrl(Request.Query.x.ToString()); };
             Get["/"] = x => { return ""; };
             Get["*"] = x => { return ""; };
+        }
+
+        private static object ProcessCss(Uri uri, string contentType, string fileName)
+        {
+            return null;
         }
 
         private static object ProcessGeneric(Uri uri, string contentType, string fileName)
@@ -171,7 +177,7 @@ namespace JustProxy
 
         private static string Decode(string value)
         {
-            return new string((from b in Convert.FromBase64String(HttpUtility.UrlDecode(value))
+            return new string((from b in Convert.FromBase64String(value)
                                select (char) (Convert.ToInt32(b) ^ Key)).ToArray());
         }
     }
