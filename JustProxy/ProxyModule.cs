@@ -25,8 +25,8 @@ namespace JustProxy
         {
             actions = new Dictionary<string, Func<Uri, string, string, object>>
                       {
-                          {"text/html", ProcessHtml},
-                          {"text/css", ProcessCss}
+                          {"text/html", ProcessHtml}
+//                          ,{"text/css", ProcessCss}
                       };
             defaultAction = ProcessGeneric;
 
@@ -177,8 +177,13 @@ namespace JustProxy
 
         private static string Decode(string value)
         {
-            return new string((from b in Convert.FromBase64String(value)
-                               select (char) (Convert.ToInt32(b) ^ Key)).ToArray());
+            if (value.Contains("+"))
+                return new string((from b in Convert.FromBase64String(value)
+                                   select (char) (Convert.ToInt32(b) ^ Key)).ToArray());
+            else
+                return new string((from b in Convert.FromBase64String(HttpUtility.UrlDecode(value))
+                                   select (char)(Convert.ToInt32(b) ^ Key)).ToArray());
+
         }
     }
 }
